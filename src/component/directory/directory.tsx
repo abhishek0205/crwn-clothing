@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './directory.scss';
-import { MenuItem } from '../menu-item/menu-item';
+import  MenuItem from '../menu-item/menu-item';
 
 interface IPropsDirectory {
 
@@ -52,8 +52,8 @@ export default class directory extends React.Component <IPropsDirectory,IStateDi
     render() {        
         return (
             <div className="directory-menu">
-                {this.state.sections.map(section => (
-                    <MenuItem key={section.id} title={section.title} imageUrl={section.imageUrl} size={section.size}/>
+                {this.state.sections.map(({id,...otherSectionProps}) => (
+                    <MenuItem key={id} {...otherSectionProps}/>
                 ))
                 }
             </div>
